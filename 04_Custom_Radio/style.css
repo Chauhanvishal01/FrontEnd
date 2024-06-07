@@ -1,0 +1,94 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body{
+    height: 100vh;
+    display: grid;
+    place-items: center;
+    background: #0069d9;
+}
+.wrapper{
+    height: 100px;
+    width: 400px;
+    border-radius: 5px;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 2rem 1.5rem;
+}
+.wrapper .option{
+    background-color: #fff;
+    height: 100%;
+    width: 100%;
+    border: 2px solid lightgray;
+    margin: 0 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+#option-1:checked ~ .option-1,
+#option-2:checked ~ .option-2{
+    background: #0069d9;
+    border-color: #0069d9;
+
+}
+
+.wrapper .dot{
+    height: 20px;
+    width: 20px;
+    background: #d9d9d9;
+    border-radius: 50%;
+    position: relative;
+    transition: all 0.3s ease;
+}
+#option-1:checked ~ .option-1 .dot,
+#option-2:checked ~ .option-2 .dot{
+    background: #fff;
+
+
+}
+
+.wrapper .dot::before{
+    content: "";
+    position: absolute;
+    left: 4px;
+    top: 4px;
+    height: 12px;
+    width: 12px;
+    background: #0069d9;
+    border-radius: 50%;
+    opacity: 0;
+    transform: scale(1.5);
+    transition: all 0.3s ease;
+
+}
+#option-1:checked ~ .option-1 .dot::before,
+#option-2:checked ~ .option-2 .dot::before{
+    opacity: 1;
+    transform: scale(1);
+
+
+}
+.wrapper .option span{
+    color: #808080;
+    font-size: 2rem;
+}
+#option-1:checked ~ .option-1 span,
+#option-2:checked ~ .option-2 span{
+    color: #fff;
+
+}
+input[type="radio"]{
+    display: none;
+}
